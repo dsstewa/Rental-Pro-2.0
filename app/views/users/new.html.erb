@@ -1,0 +1,25 @@
+<h1>Please Sign up below!</h1>
+
+<%= form_for @user do |u|%>
+  <%= u.label :name%>
+  <%= u.text_field :name%>
+  <br>
+  <%= u.label :phone_number %>
+  <%= u.text_field :phone_number %>
+  <br>
+  <%= u.label :email %>
+  <%= u.text_field :email %>
+  <br>
+  <%= u.label :password %>
+  <%= u.text_field :password%>
+  <br>
+  <%= u.label :password_confirmation%>
+  <%= u.text_field :password_confirmation%>
+  <br>
+  <%= u.label "Please select your company"%>
+  <%= u.collection_select :company_id, Company.all, :id, :name %>
+  <br>
+  <%= u.submit%>
+<%end%>
+
+<%= link_to "Don't See Your Company? Create it!", new_company_path %>

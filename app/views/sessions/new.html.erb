@@ -1,0 +1,14 @@
+<h1>Welcome to Rental Pro! Please sign in below!</h1>
+
+<%= form_for @user, url: signin_path, method: :post do |u| %>
+   <%= u.label :email %>
+   <%= u.text_field :email%>
+   <br>
+   <%= u.label :password %>
+   <%= u.password_field :password, id: "password" %>
+   <br>
+   <%= u.submit "Sign In" %>
+   <% end %>
+<br>
+<br>
+<%= link_to "Create Account", new_user_path%>

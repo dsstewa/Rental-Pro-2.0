@@ -1,0 +1,23 @@
+<h1> hey you made it to the new project spage </h1>
+
+
+<%= form_for @project do |u|%>
+  <%= u.label :name%>
+  <%= u.text_field :name%>
+  <br>
+  <%= u.label :client_name %>
+  <%= u.text_field :client_name%>
+  <br>
+  <%= u.label :address %>
+  <%= u.text_field :address %>
+  <br>
+  <%= u.fields_for :projectmanager do |p|%>
+  <%= p.label "Project Manager"%>
+  <%= p.collection_select :user_id, User.all, :id, :name %>
+    <%end%>
+  <br>
+  
+  <br>
+  <%= u.hidden_field :company_id, value: current_user.company.id%>
+  <%= u.submit%>
+<%end%>

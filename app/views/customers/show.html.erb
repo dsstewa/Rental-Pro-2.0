@@ -1,0 +1,14 @@
+<h1> Project Show Page </h1>
+<br> Company Name:
+<%=@project.company.name%>
+<br> Project Manager:
+<%= link_to @project.projectmanager.name, user_path(@project.projectmanager.user)%>
+<br> Project Name:
+<%=@project.name%>
+<br> Project Owner:
+<%=@project.client_name%>
+<br> Project Location:
+<%=@project.address%>
+
+
+<br>
