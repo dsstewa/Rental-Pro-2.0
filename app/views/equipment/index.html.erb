@@ -1,3 +1,4 @@
 <h4>Current on Rent Equipment for are listed below by project</h4>
-
-
+<%= @equipment.each do |e| %>
+ <%= link_to e.name, equipment_path(e) %>
+<%end%>

@@ -268,3 +268,303 @@ Processing by CustomersController#index as HTML
 Completed 200 OK in 32ms (Views: 31.0ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/equipment/new" for ::1 at 2019-09-14 19:07:43 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/davidstewart/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by EquipmentController#new as HTML
+  Rendering equipment/new.html.erb within layouts/application
+  Rendered equipment/new.html.erb within layouts/application (246.2ms)
+Completed 500 Internal Server Error in 266ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `company_projects' for #<#<Class:0x00007f8fe83aaac8>:0x00007f8fe83a84f8>
+Did you mean?  company_path):
+    17:   <%= u.text_field :rental_rate_day%>
+    18:   <br>
+    19:   <%= u.label "Please select the project the equipment is assigned to"%>
+    20:   <%= u.collection_select :project_id, company_projects, :id, :name %>
+    21:   <br>
+    22:   <%= u.hidden_field :company_id, value: current_user.company.id%>
+    23: 
+  
+app/views/equipment/new.html.erb:20:in `block in _app_views_equipment_new_html_erb___3484353163325834976_70128026606520'
+app/views/equipment/new.html.erb:3:in `_app_views_equipment_new_html_erb___3484353163325834976_70128026606520'
+Started GET "/equipment/new" for ::1 at 2019-09-14 19:09:28 -0600
+Processing by EquipmentController#new as HTML
+  Rendering equipment/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/equipment/new.html.erb:20
+  Rendered equipment/new.html.erb within layouts/application (53.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 371ms (Views: 368.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/equipment/new" for ::1 at 2019-09-14 19:10:50 -0600
+Processing by EquipmentController#new as HTML
+  Rendering equipment/new.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/equipment/new.html.erb:17
+  Rendered equipment/new.html.erb within layouts/application (3.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/equipment" for ::1 at 2019-09-14 19:11:07 -0600
+Processing by EquipmentController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQzMza83p/QhhALJkU/rAnCoMJe/dfVLH7XAtZW0+l/kQGUrlDUoQn6gQ7Qar43xDXzJ7GnNKPa89+mMWnvJdA==", "equipment"=>{"name"=>"Steve", "make"=>"John Deere", "machine_type"=>"Excavator", "rental_rate_day"=>"23.12", "company_id"=>"1"}, "commit"=>"Create Equipment"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/equipment_controller.rb:8
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/equipment_controller.rb:8
+  [1m[36mEquipment Create (0.5ms)[0m  [1m[32mINSERT INTO "equipment" ("name", "make", "machine_type", "rental_rate_day", "company_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["make", "John Deere"], ["machine_type", "Excavator"], ["rental_rate_day", 23.12], ["company_id", 1], ["created_at", "2019-09-15 01:11:07.519255"], ["updated_at", "2019-09-15 01:11:07.519255"]]
+  ↳ app/controllers/equipment_controller.rb:8
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/equipment_controller.rb:8
+Redirected to http://localhost:3000/equipment
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/equipment" for ::1 at 2019-09-14 19:11:07 -0600
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  Rendered equipment/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/equipment" for ::1 at 2019-09-14 19:12:46 -0600
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:3
+  Rendered equipment/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"equipment"}, missing required keys: [:id]):
+    1: <h4>Current on Rent Equipment for are listed below by project</h4>
+    2: 
+    3: <%= @equipment.each do |e| %>
+    4:  <%= link_to e.name, equipment_path%>
+    5: <%end%>
+  
+app/views/equipment/index.html.erb:4:in `block in _app_views_equipment_index_html_erb___2123888925821082229_70128028242060'
+app/views/equipment/index.html.erb:3:in `_app_views_equipment_index_html_erb___2123888925821082229_70128028242060'
+Started GET "/equipment" for ::1 at 2019-09-14 19:13:26 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/davidstewart/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:3
+  Rendered equipment/index.html.erb within layouts/application (12.6ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"equipment", :id=>nil}, missing required keys: [:id]):
+    1: <h4>Current on Rent Equipment for are listed below by project</h4>
+    2: 
+    3: <%= @equipment.each do |e| %>
+    4:  <%= link_to e.name, equipment_path(p)%>
+    5: <%end%>
+  
+app/views/equipment/index.html.erb:4:in `block in _app_views_equipment_index_html_erb__474983326079327178_70121139185080'
+app/views/equipment/index.html.erb:3:in `_app_views_equipment_index_html_erb__474983326079327178_70121139185080'
+Started GET "/equipment" for ::1 at 2019-09-14 19:14:22 -0600
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:3
+Started POST "/equipment" for ::1 at 2019-09-14 19:14:26 -0600
+Processing by EquipmentController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VQzMza83p/QhhALJkU/rAnCoMJe/dfVLH7XAtZW0+l/kQGUrlDUoQn6gQ7Qar43xDXzJ7GnNKPa89+mMWnvJdA==", "equipment"=>{"name"=>"Steve", "make"=>"John Deere", "machine_type"=>"Excavator", "rental_rate_day"=>"23.12", "company_id"=>"1"}, "commit"=>"Create Equipment"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/equipment_controller.rb:8
+  Rendered equipment/index.html.erb within layouts/application (14715.5ms)
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/equipment" for ::1 at 2019-09-14 19:14:37 -0600
+Started GET "/equipment" for ::1 at 2019-09-14 19:14:37 -0600
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/equipment" for ::1 at 2019-09-14 19:14:37 -0600
+  ↳ app/controllers/equipment_controller.rb:8
+  ↳ app/controllers/application_controller.rb:10
+Processing by EquipmentController#index as HTML
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by EquipmentController#index as HTML
+  Parameters: {"authenticity_token"=>"VQzMza83p/QhhALJkU/rAnCoMJe/dfVLH7XAtZW0+l/kQGUrlDUoQn6gQ7Qar43xDXzJ7GnNKPa89+mMWnvJdA=="}
+Processing by EquipmentController#index as HTML
+  Parameters: {"authenticity_token"=>"VQzMza83p/QhhALJkU/rAnCoMJe/dfVLH7XAtZW0+l/kQGUrlDUoQn6gQ7Qar43xDXzJ7GnNKPa89+mMWnvJdA=="}
+  [1m[36mEquipment Create (0.6ms)[0m  [1m[32mINSERT INTO "equipment" ("name", "make", "machine_type", "rental_rate_day", "company_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Steve"], ["make", "John Deere"], ["machine_type", "Excavator"], ["rental_rate_day", 23.12], ["company_id", 1], ["created_at", "2019-09-15 01:14:37.029795"], ["updated_at", "2019-09-15 01:14:37.029795"]]
+  Parameters: {"authenticity_token"=>"VQzMza83p/QhhALJkU/rAnCoMJe/dfVLH7XAtZW0+l/kQGUrlDUoQn6gQ7Qar43xDXzJ7GnNKPa89+mMWnvJdA=="}
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 15043ms (Views: 15040.9ms | ActiveRecord: 1.3ms)
+
+
+  Rendering equipment/index.html.erb within layouts/application
+  Rendering equipment/index.html.erb within layouts/application
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipment_controller.rb:8
+  ↳ app/views/equipment/index.html.erb:3
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+Started GET "/equipment" for ::1 at 2019-09-14 19:14:37 -0600
+  Rendering equipment/index.html.erb within layouts/application
+  ↳ app/views/equipment/index.html.erb:3
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/controllers/equipment_controller.rb:8
+  ↳ app/views/equipment/index.html.erb:3
+Redirected to http://localhost:3000/equipment
+Processing by EquipmentController#index as HTML
+Completed 302 Found in 10817ms (ActiveRecord: 3.8ms)
+
+
+  Parameters: {"authenticity_token"=>"VQzMza83p/QhhALJkU/rAnCoMJe/dfVLH7XAtZW0+l/kQGUrlDUoQn6gQ7Qar43xDXzJ7GnNKPa89+mMWnvJdA=="}
+  Rendering equipment/index.html.erb within layouts/application
+  [1m[36mEquipment Load (0.1ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:3
+Started GET "/equipment" for ::1 at 2019-09-14 19:15:43 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/davidstewart/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  Rendered equipment/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/davidstewart/Development/code/RentalPro-2.0/app/views/equipment/index.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+...ink_to e.name, equipment_path e );@output_buffer.safe_append...
+...                              ^):
+  
+app/views/equipment/index.html.erb:4: syntax error, unexpected tIDENTIFIER, expecting do or '{' or '('
+Started GET "/equipment" for ::1 at 2019-09-14 19:15:58 -0600
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  Rendered equipment/index.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/davidstewart/Development/code/RentalPro-2.0/app/views/equipment/index.html.erb:4: syntax error, unexpected ( arg, expecting do or '{' or '('
+...ink_to e.name, equipment_path (e) );@output_buffer.safe_appe...
+...                              ^):
+  
+app/views/equipment/index.html.erb:4: syntax error, unexpected ( arg, expecting do or '{' or '('
+Started GET "/equipment" for ::1 at 2019-09-14 19:16:02 -0600
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:3
+  Rendered equipment/index.html.erb within layouts/application (10.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 310ms (Views: 307.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/equipment" for ::1 at 2019-09-14 19:16:36 -0600
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+Started GET "/equipment" for ::1 at 2019-09-14 19:17:10 -0600
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:2
+  [1m[36mCACHE Equipment Load (0.0ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:2
+  [1m[36mCACHE Equipment Load (0.0ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:3
+  Rendered equipment/index.html.erb within layouts/application (77739.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 77771ms (Views: 77769.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2019-09-14 19:17:54 -0600
+Processing by EquipmentController#index as HTML
+  Rendering equipment/index.html.erb within layouts/application
+  [1m[36mEquipment Load (0.2ms)[0m  [1m[34mSELECT "equipment".* FROM "equipment"[0m
+  ↳ app/views/equipment/index.html.erb:2
+  Rendered equipment/index.html.erb within layouts/application (10.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 6308ms (Views: 67.0ms | ActiveRecord: 2.2ms)
+
+
+Processing by SiteController#index as HTML
+  Parameters: {"authenticity_token"=>"bqJoEJJHBNvOo8az0kq8H6UuqvxAFhvMKczHZEnexkLf7sH2qUWLbZGHh85Zqtrs2PpTh5auxnGKju5dhhH1aQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 12ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for ::1 at 2019-09-14 19:18:00 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:2
+  Rendered users/show.html.erb within layouts/application (13.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mCACHE Company Load (0.0ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/companies_helper.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+Completed 200 OK in 49ms (Views: 46.7ms | ActiveRecord: 0.7ms)
+
+

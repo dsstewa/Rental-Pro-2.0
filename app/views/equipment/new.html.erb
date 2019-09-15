@@ -7,17 +7,12 @@
   <%= u.label :make %>
   <%= u.text_field :make %>
   <br>
-  <%= u.label :rental_company %>
-  <%= u.text_field :rental_company%>
-  <br>
   <%= u.label :machine_type %>
   <%= u.text_field :machine_type %>
   <br>
   <%= u.label :rental_rate_day%>
   <%= u.text_field :rental_rate_day%>
-  <br>
-  <%= u.label "Please select the project the equipment is assigned to"%>
-  <%= u.collection_select :project_id, company_projects, :id, :name %>
+
   <br>
   <%= u.hidden_field :company_id, value: current_user.company.id%>
 
