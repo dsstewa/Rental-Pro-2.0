@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     #before_action :require_login
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :on_rent, :off_rent
    
-    
+    def on_rent
+      @on_rent = Equipment.where(rented: true)
+    end
+    def off_rent
+      @on_rent = Equipment.where(rented: false)
+    end
+
   
     def current_user
       if session[:user_id]

@@ -25,7 +25,7 @@ class EquipmentController < ApplicationController
     
 
        def update
-        @equipment = User.find_by(id: params[:id])
+        @equipment = Equipment.find_by(id: params[:id])
         @equipment.update(equipment_params)
         if @equipment.save
             redirect_to equipment_path(@equipment)

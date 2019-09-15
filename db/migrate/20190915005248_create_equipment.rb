@@ -7,6 +7,7 @@ class CreateEquipment < ActiveRecord::Migration[5.2]
       t.float   :rental_rate_day
       t.belongs_to  :company, foreign_key: true
       t.timestamps
+      t.boolean :rented, default: false
     end
   end
 end

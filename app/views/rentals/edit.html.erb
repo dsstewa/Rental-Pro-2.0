@@ -1,0 +1,28 @@
+<h1>Please edit or check in the rental below</h1>
+<br> Equipment Name
+<%=@rental.equipment.name%>
+<br> Equipment Make:
+<%=@rental.equipment.make%>
+<br> Machine Type:
+<%=@rental.equipment.machine_type%>
+<br> Rental Rate (Day) $
+<%=@rental.equipment.rental_rate_day%>
+<br> Rental Status
+<%= @rental.equipment.rented == true ? "On Rent" : ""%> 
+<br>Rented At
+<%=@rental.rental_out%>
+
+
+
+
+
+
+
+<% if @rental.equipment.rented == true%>
+<%= form_for @rental, url: customer_rental_path do |u|%>
+  <%= u.hidden_field :check_in, value: true%>
+  <%= u.submit "Check back In"%>
+<%end%>
+<%else%><br>Checked in at:
+<%=@rental.rental_in%>
+<%end%>

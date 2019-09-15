@@ -32,7 +32,7 @@
         <% if logged_in? %>
            <%=link_to("Signout", signout_path, method: :delete, class: "navbar-brand")%>
            <%=link_to("Equipment", equipment_index_path, method: :GET, class: "navbar-brand")%>
-           
+           <%=link_to("Customers", customers_path, method: :GET, class: "navbar-brand")%>
            <% elsif !logged_in? %>
            <a class="navbar-brand" href="<%= new_user_path %>"/>Sign Up</a>%>
            <a class="navbar-brand" href="<%= signin_path %>"/>Sign In</a>%>

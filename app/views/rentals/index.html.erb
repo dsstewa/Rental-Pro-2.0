@@ -1,0 +1,8 @@
+<ul>
+       <% @rentals.each do |rental| %>
+       <li><%=rental.equipment.name%>
+        <%= link_to "Check In", "/customer/#{rental.customer.id}/rentals/#{rental.id}/edit" %>
+         </li>
+        
+       <% end %>
+   </ul>

@@ -1,6 +1,10 @@
 <h4>Current on Rent Equipment for are listed below by project</h4>
 <ul>
        <% @equipment.each do |equipment| %>
-           <li><%= link_to equipment.name, equipment_path(equipment) %></li>
+           <li><%= link_to equipment.name, equipment_path(equipment)%>  </li>
+           
        <% end %>
    </ul>
+
+
+   <%= link_to "Add a Piece of Equipment", new_equipment_path%>

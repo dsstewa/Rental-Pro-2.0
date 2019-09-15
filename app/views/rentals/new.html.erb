@@ -1,0 +1,15 @@
+<h1>Please create a new Rental Below</h1>
+
+<%= form_for @rental, url: customer_rentals_path do |u|%>
+    <%= u.label "Please select the Equipment you would like to rent"%>
+    <%= u.collection_select :equipment_id, off_rent, :id, :name %>
+    <br>
+    <%= u.label  "How long woudl you like to rent for (Days)"%>
+    <%= u.text_field :rental_duration%>
+    <br>
+    <%= u.label "What is the project name?"%>
+    <br>
+    <%= u.text_field :project_name%>
+    <br>
+  <%= u.submit%>
+<%end%>

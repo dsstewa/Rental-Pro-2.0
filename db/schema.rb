@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 2019_09_15_005301) do
 
   create_table "equipment", force: :cascade do |t|
     t.string "name"
-    t.string "rental_company"
     t.string "make"
     t.string "machine_type"
     t.float "rental_rate_day"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "rented", default: false
     t.index ["company_id"], name: "index_equipment_on_company_id"
   end
 
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2019_09_15_005301) do
     t.integer "equipment_id"
     t.integer "rental_duration"
     t.string "project_name"
+    t.string "rental_out"
+    t.string "rental_in"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_rentals_on_customer_id"
