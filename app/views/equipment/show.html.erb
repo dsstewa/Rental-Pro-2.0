@@ -1,0 +1,11 @@
+<h1> Equipment Show Page </h1>
+<br> Equipment Name
+<%=@equipment.name%>
+<br> Equipment Make:
+<%=@equipment.make%>
+<br> Machine Type:
+<%=@equipment.machine_type%>
+<br> Rental Rate (Day) $
+<%=@equipment.rental_rate_day%>
+<br>
+<%=link_to "Edit", edit_equipment_path(@equipment)%>
