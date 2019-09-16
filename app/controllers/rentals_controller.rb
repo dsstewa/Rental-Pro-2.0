@@ -32,7 +32,7 @@ class RentalsController < ApplicationController
    end
 
     def rented
-        @eq = Equipment.where(rented: true)
+        @eq = Equipment.eq_rented
     end
 
 

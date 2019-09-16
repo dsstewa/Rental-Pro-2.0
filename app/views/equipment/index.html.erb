@@ -8,3 +8,10 @@
 
 
    <%= link_to "Add a Piece of Equipment", new_equipment_path%>
+
+
+   <%= form_tag  equipment_index_path, method: "GET" do %>
+    <%= text_field_tag :search  %>
+
+    <%= submit_tag "Search" %>
+    <% end %>

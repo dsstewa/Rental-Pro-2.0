@@ -1,5 +1,8 @@
 class EquipmentController < ApplicationController
-    def new
+   
+  before_action :set_equipment, only: [:show, :edit, :update]
+   
+  def new
         @equipment = Equipment.new
       end
     
@@ -11,21 +14,26 @@ class EquipmentController < ApplicationController
     
     
       def index
+        if !params[:search]
         @equipment = Equipment.all
+        else
+        @equipment = Equipment.where("name like ?", "%#{params[:search]}%")
+         
+        end
+
       end
       
       def show
-        @equipment = Equipment.find_by_id(params[:id])
+        
       end
 
 
       def edit
-        @equipment = Equipment.find_by_id(params[:id])
+       
       end
     
 
        def update
-        @equipment = Equipment.find_by(id: params[:id])
         @equipment.update(equipment_params)
         if @equipment.save
             redirect_to equipment_path(@equipment)
@@ -33,10 +41,12 @@ class EquipmentController < ApplicationController
     
         end
 
-
-
-
       private 
+      
+      def set_equipment
+        @equipment = Equipment.find_by(id: params[:id])
+      end
+       
       def equipment_params
          params.require(:equipment).permit(:name, :rental_company, :rental_company, :make, :machine_type, :rental_rate_day, :project_id, :company_id)
       end
