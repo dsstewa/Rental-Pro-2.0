@@ -18,4 +18,6 @@ class Rental < ApplicationRecord
         self.save
     end
 
+
+
 end

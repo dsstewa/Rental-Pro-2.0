@@ -1,0 +1,8 @@
+<h2>The current equipment that is on rent is listed below</h1>
+
+<ul>
+       <% @eq.each do |r| %>
+       <li><%=r.name%>
+         </li> 
+       <% end %>
+   </ul>

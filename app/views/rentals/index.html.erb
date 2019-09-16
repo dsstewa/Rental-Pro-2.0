@@ -1,7 +1,7 @@
 <ul>
        <% @rentals.each do |rental| %>
        <li><%=rental.equipment.name%>
-        <%= link_to "Check In", "/customer/#{rental.customer.id}/rentals/#{rental.id}/edit" %>
+        <%= link_to "Check In", edit_customer_rental_path(rental.customer.id, rental.id) %>
          </li>
         
        <% end %>

@@ -1,14 +1,33 @@
 <h1> Customer Page Show Page </h1>
-<br> Customer Name
+<br> Customer Name:
 <%=@customer.name%>
-<br> Phone Number
+<br> Phone Number:
 <br>
 <%=@customer.phone_number%>
-<br> Address
+<br> Address:
 <%=@customer.address%>
 <br>
 <%= link_to "Create a New Rental", new_customer_rental_path(@customer)%>
+<br>
+<%= link_to "Current Rentals", customer_rentals_path(@customer)%>
 
 
 
-=<h5> Current Rented Equipment</h5>
+<h5> Current Rented Equipment</h5>
+<ul>
+<% @customer.rentals.each do |x|%>
+<% if x.rental_in == nil  %>
+  
+  <li>  <%= link_to x.equipment.name, edit_customer_rental_path(x.customer, x) %></li>
+    <%end%>
+<%end%>
+</ul>
+<h5> Past Rented Equipment</h5>
+<ul>
+<% @customer.rentals.each do |x|%>
+   <% if x.rental_in != nil  %>
+    <li><%= link_to x.equipment.name, edit_customer_rental_path(x.customer, x) %></li>
+    <%end%>
+<%end%>
+
+

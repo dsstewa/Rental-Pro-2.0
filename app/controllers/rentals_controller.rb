@@ -26,10 +26,14 @@ class RentalsController < ApplicationController
     @rental = Rental.find_by(id: params[:id])
     if rental_params[:check_in] == "true"
         @rental.check_in
-        binding.pry
+        @rental.save
         redirect_to customer_path(@rental.customer)
     end
    end
+
+    def rented
+        @eq = Equipment.where(rented: true)
+    end
 
 
     private 
