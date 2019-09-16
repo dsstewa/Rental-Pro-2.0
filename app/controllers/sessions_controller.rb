@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  skip_before_action :require_login, only: [:new, :create, :gitcreate]
   
   def new
         @user = User.new
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
        end
 
        def gitcreate
-      
+           
         @user = User.find_by(uid: auth['uid'])
         if @user
           session[:user_id] = @user.id
