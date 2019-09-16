@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-    def new
-    
+  skip_before_action :require_login, only: [:new, :create]
+      def new
         @company = Company.new
       end
     
