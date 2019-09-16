@@ -14,7 +14,13 @@ Rails.application.routes.draw do
     get    '/signin',   to: 'sessions#new'
     post   '/signin',   to: 'sessions#create'
     delete '/signout',  to: 'sessions#destroy'
-  
+    get 'auth/github' => 'github_auth'
+    get '/auth/github/callback' => 'sessions#gitcreate'
+    
+    get 'auth/developer' => 'developer_auth'
+    post '/auth/developer/callback' => 'sessions#dcreate'
+
+
     root 'site#index'
 
 

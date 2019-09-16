@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-    def new
+    skip_before_action :verify_authenticity_token, only: :dcreate
+  
+  def new
         @user = User.new
        end
        
@@ -12,13 +14,30 @@ class SessionsController < ApplicationController
               redirect_to @user
          end
        end
+
+       def gitcreate
+      
+        @user = User.find_by(uid: auth['uid'])
+        if @user
+          session[:user_id] = @user.id
+          redirect_to @user
+        else
+         @user = User.new(uid: auth['uid'], name: auth['info']['name'], email: auth['info']['email'], password: auth['uid'])
+         @user.company_id = "1"
+         @user.save
+         session[:user_id] = @user.id
+         redirect_to @user
+        end
+      end
        
-       def destroy
-       
+        def destroy
          session.delete :user_id
          redirect_to root_url
+        end
+
+       def auth
+        request.env['omniauth.auth']
        end
-     
 
 
 end

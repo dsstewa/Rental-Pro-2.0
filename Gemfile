@@ -19,7 +19,10 @@ gem 'uglifier', '>= 1.3.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # bootstrap
-
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'dotenv-rails'
+gem 'thin'
 gem 'bootstrap-sass', '~> 3.4.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

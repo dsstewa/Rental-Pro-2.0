@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_09_15_005301) do
     t.string "email"
     t.string "phone_number"
     t.boolean "admin", default: false
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "company_id"

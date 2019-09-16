@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string  :email
       t.string  :phone_number
       t.boolean :admin, default: false
+      t.string :uid
       t.timestamps
       t.belongs_to  :company, foreign_key: true
     end
