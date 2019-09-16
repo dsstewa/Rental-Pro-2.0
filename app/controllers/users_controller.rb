@@ -8,10 +8,13 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         @company = Company.find_by_id(user_params[:company_id])
         @user.company = @company
-        @user.save
-        session[:user_id] = @user.id
-        redirect_to user_path current_user
-      
+        if @user.valid?
+           @user.save
+           session[:user_id] = @user.id
+           redirect_to user_path current_user
+        else
+            render :new
+        end
     end
 
     def show
